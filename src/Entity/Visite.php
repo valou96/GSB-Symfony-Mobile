@@ -21,7 +21,7 @@ class Visite
     private ?string $compteRendu = null;
 
     #[ORM\ManyToOne(inversedBy: 'visite')]
-    private ?Visiteur $visiteur = null;
+    private ?Visiteurs $visiteur = null;
 
     #[ORM\ManyToOne(inversedBy: 'visite')]
     private ?Practiciens $practiciens = null;

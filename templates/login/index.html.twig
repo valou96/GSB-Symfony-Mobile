@@ -30,8 +30,11 @@
                     <button class="btn btn-primary" type="submit">Se connecter</button>
                 </div>
             </div>
-            <input type="hidden" name="_target_path" value="/"/>
+            <input type="hidden" name="_target_path" value="/accueil"/>
+            <div class="col-4">
+                <a href="{{ path('logout') }}"> <button class="btn btn-primary" >Logout</button></a>
+            </div>
         </form>
     </div>
-</div>
+
 {% endblock %}

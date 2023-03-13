@@ -39,16 +39,16 @@ class Practiciens
     #[ORM\Column]
     private ?int $coefNotoriete = null;
 
-    #[ORM\ManyToMany(targetEntity: Visiteur::class, mappedBy: 'portFeuille')]
-    private Collection $visiteurs;
-
     #[ORM\OneToMany(mappedBy: 'practiciens', targetEntity: Visite::class)]
     private Collection $visite;
 
+    #[ORM\ManyToMany(targetEntity: Visiteurs::class, mappedBy: 'PortFeuille')]
+    private Collection $visiteurs;
+
     public function __construct()
     {
-        $this->visiteurs = new ArrayCollection();
         $this->visite = new ArrayCollection();
+        $this->visiteurs = new ArrayCollection();
     }
 
 
