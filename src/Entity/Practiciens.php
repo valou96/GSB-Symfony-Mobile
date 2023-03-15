@@ -6,8 +6,10 @@ use App\Repository\PracticiensRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: PracticiensRepository::class)]
+#[ApiResource]
 class Practiciens
 {
     #[ORM\Id]
@@ -154,14 +156,14 @@ class Practiciens
     }
 
     /**
-     * @return Collection<int, Visiteur>
+     * @return Collection<int, Visiteurs>
      */
     public function getVisiteurs(): Collection
     {
         return $this->visiteurs;
     }
 
-    public function addVisiteur(Visiteur $visiteur): self
+    public function addVisiteur(Visiteurs $visiteur): self
     {
         if (!$this->visiteurs->contains($visiteur)) {
             $this->visiteurs->add($visiteur);
@@ -171,7 +173,7 @@ class Practiciens
         return $this;
     }
 
-    public function removeVisiteur(Visiteur $visiteur): self
+    public function removeVisiteur(Visiteurs $visiteur): self
     {
         if ($this->visiteurs->removeElement($visiteur)) {
             $visiteur->removePortFeuille($this);

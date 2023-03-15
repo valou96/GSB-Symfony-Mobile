@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\VisiteRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: VisiteRepository::class)]
+#[ApiResource]
 class Visite
 {
     #[ORM\Id]
@@ -55,12 +57,12 @@ class Visite
         return $this;
     }
 
-    public function getVisiteur(): ?Visiteur
+    public function getVisiteur(): ?Visiteurs
     {
         return $this->visiteur;
     }
 
-    public function setVisiteur(?Visiteur $visiteur): self
+    public function setVisiteur(?Visiteurs $visiteur): self
     {
         $this->visiteur = $visiteur;
 
